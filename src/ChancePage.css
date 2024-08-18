@@ -30,6 +30,9 @@ input{
     animation: heading 0.25s ease 0s infinite alternate;
    
 }
+.img{
+    width: 450px;
+}
 @keyframes heading {
     0% {
         transform: translate(0px)
@@ -47,4 +50,37 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@media(max-width: 420px) {
+    .fx{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .img{
+        width: 100%;
+    }
+    .h1 {
+        color: magenta;
+        animation: heading 0.25s ease 0s infinite alternate;
+       font-size: 1.1rem;
+       margin-bottom: 0.7em;
+    }
+    .h2{
+        font-weight: lighter;
+        font-size: 0.5rem;
+        margin-top: -1em;
+    }
+    input{
+        margin-top: 1em;
+    }
+    .btn{
+        border: 0;
+        padding: 0.7em;
+        border-radius: 0.7em;
+        font-size: x-small;
+        background-color:pink;
+        color: black;
+        margin-top: -3em;
+    }
 }

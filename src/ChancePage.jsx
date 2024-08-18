@@ -35,7 +35,7 @@ const ChancePage = () => {
         </h1>
         <img src={cheemsvibe} width={50} style={{marginLeft:"1em",marginBottom:"0.1em",borderRadius:'45%'}}/>
       </div>
-      <img src={rock} width={450} alt="Rock Paper Scissors" />
+      <img  className='img' src={rock} alt="Rock Paper Scissors" />
       <form onSubmit={handleSubmit}>
         <h2 className='h2'>
           Enter number of chances you want to play:
