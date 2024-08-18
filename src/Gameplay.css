@@ -1,0 +1,83 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.5em;
+}
+.head{
+   color: brown;
+   animation: headd 0.9s ease 0.6s infinite alternate;
+}
+@keyframes headd {
+    0% {    
+        transform: skew(-40deg)  
+    }
+    25%{
+        transform: skew(0deg)
+    }
+    50% {    
+        transform: skew(40deg)
+    }
+    75%{
+        transform: skew(0deg)
+    }
+    100%{
+        transform: skew(-30deg)
+    }
+   
+}
+.opt-head{
+    text-align: center;
+    color: brown;
+    margin-top: -3.3em;
+}
+.final{
+    text-align: end;
+    font-family:fantasy;
+    margin-right: 1.5em;
+    color:red;
+    font-weight:500;
+    font-size: x-large;
+}
+
+.option{
+    margin-top: 5em;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.btn-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn1 {
+    margin-top: 1.5em;
+    border: 0;
+    padding: 0.7em;
+    border-radius: 0.7em;
+    font-size: large;
+    background-color: rgb(3, 243, 43);
+    color: black;
+    cursor: pointer;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+}
+.final2{
+    margin-top: 1em;
+    text-align: center;
+    font-family:fantasy;
+    color:rgb(0, 8, 255);
+    font-weight:500;
+    font-size: x-large;
+}
+.final-same{ 
+    font-family:sans-serif;
+    margin-right: 1.7em;
+    font-weight:bolder;
+    font-size: 1.4rem
+}

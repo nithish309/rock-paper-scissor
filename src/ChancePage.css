@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+span{
+    color: black;
+}
+.div{
+    margin-top: 3.5em;
+    text-align: center;
+    width: 99.3vw;
+}
+input{
+    font-size: larger;
+}
+.h2{
+    font-weight: lighter;
+    margin-bottom: 3.5em;
+}
+.btn{
+    border: 0;
+    padding: 0.7em;
+    border-radius: 0.7em;
+    font-size: large;
+    background-color:pink;
+    color: black;
+}
+.h1 {
+    color: magenta;
+    animation: heading 0.25s ease 0s infinite alternate;
+   
+}
+@keyframes heading {
+    0% {
+        transform: translate(0px)
+    }
+    100% {
+        transform: translate(10px,10px)
+    }
+    
+}
+button:hover{
+    cursor: pointer;
+   transform:matrix(1.1,0,0,1.1,0,0)
+}
+.fx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
