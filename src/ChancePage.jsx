@@ -15,7 +15,7 @@ const ChancePage = () => {
       alert('Please enter positive number');
     }
     else if(e.target.value ==0) {
-        alert('Please enter number greater than 0');
+        alert('Please enter number greater than zero');
     }
     else
         setInputValue(e.target.value);
