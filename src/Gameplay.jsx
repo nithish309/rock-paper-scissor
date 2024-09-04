@@ -10,11 +10,17 @@ const Gameplay = () => {
   const [userScore, setUserScore] = useState(0);
   const [compScore, setCompScore] = useState(0);
   const [message, setMessage] = useState('');
-  const [palyerValue, setPlayerValue] = useState('');
+  const [playerValue, setPlayerValue] = useState('');
   const [devalue, setDevalue] = useState('');
   const [display, setDisplay] = useState('Remaining chances');
   const navigate = useNavigate();
   const compArray = ['rock', 'paper', 'scissors'];
+
+  const images = {
+    rock: 'https://media.tenor.com/5XuwpvROzEoAAAAi/rock-paper-scissors-roshambo.gif',
+    paper: 'https://media.tenor.com/iXeUwKbISiQAAAAi/rock-paper-scissors-roshambo.gif',
+    scissors: 'https://media.tenor.com/NyHqrePBRAEAAAAi/rock-paper-scissors-roshambo.gif',
+  };
 
   const handleClick = (userValue) => {
     if (final > 0) {
@@ -64,37 +70,49 @@ const Gameplay = () => {
         <img src={cheems} alt="cheems" height={100} width={100} />
       </div>
       {
-        final > 0 ? <h2 className='final'>{display} : {final}</h2> : <h2 className='final'>{display}</h2>
+        final > 0 ? <h2 className='final align'>{display} : {final}</h2> : <h2 className='final align'>{display}</h2>
       } 
       <br />
-      <h2 className='final-same' style={{ color: 'green', textAlign: 'end' }}>Your choice: {palyerValue}</h2><br />
-      <h2 className='final-same' style={{ color: 'blue', textAlign: 'end' }}>Developer choice: {devalue}</h2><br />
       <h1 className='opt-head'>Select any one of the given options</h1>
       <div className='option'>
         <img
-          src='https://media.tenor.com/5XuwpvROzEoAAAAi/rock-paper-scissors-roshambo.gif'
-          width={150}
-          height={150}
+          src={images['rock']}
+          width={70}
+          height={70}
           alt='Rock'
           onClick={() => final > 0 && handleClick('rock')}
           style={{ cursor: final > 0 ? 'pointer' : null }}
         />
         <img
-          src='https://media.tenor.com/iXeUwKbISiQAAAAi/rock-paper-scissors-roshambo.gif'
-          width={150}
-          height={140}
+          src={images['paper']}
+          width={70}
+          height={70}
           alt='Paper'
           onClick={() => final > 0 && handleClick('paper')}
           style={{ cursor: final > 0 ? 'pointer' : null }}
         />
         <img
-          src='https://media.tenor.com/NyHqrePBRAEAAAAi/rock-paper-scissors-roshambo.gif'
-          width={150}
-          height={140}
+          src={images['scissors']}
+          width={70}
+          height={70}
           alt='Scissors'
           onClick={() => final > 0 && handleClick('scissors')}
           style={{ cursor: final > 0 ? 'pointer' : null }}
         />
+      </div>
+      <div className='choices'>
+      {playerValue &&
+        <div className='choice'>
+          <h2 className='final-same align' style={{ color: 'green',marginBottom: '1em'}}>your choice</h2>
+          <img src={images[playerValue]} alt={playerValue} width={100} height={100} />
+        </div>
+      }
+      {devalue && 
+        <div className='choice'>
+          <h2 className='final-same align' style={{ color: 'blue',marginBottom: '1em'}}>Developer choice</h2>
+          <img src={images[devalue]} alt={devalue} width={100} height={100} />
+        </div>
+      }
       </div>
       <div className='btn-flex'>
         {final === 0 && (
