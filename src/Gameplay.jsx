@@ -3,6 +3,17 @@ import { TransferValue } from './TransferContext';
 import './Gameplay.css';
 import cheems from './images/Cc.gif';
 import { useNavigate } from 'react-router-dom';
+import rock from './images/stone.jpeg'
+import paper from './images/paper.jpeg'
+import scissors from './images/scissor.jpeg'
+import leftini from './images/left-initial.gif'
+import rightini from './images/right-initial.gif'
+import leftrock from './images/left-stone1.gif'
+import leftpaper from './images/left-paper1.gif'
+import leftscissors from './images/left-scisor1.gif'
+import rightrock from './images/right-stone.gif'
+import rightpaper from './images/right-paper.gif'
+import rightscissors from './images/right-scissor.gif'
 
 const Gameplay = () => {
   const { val } = useContext(TransferValue);
@@ -17,10 +28,34 @@ const Gameplay = () => {
   const compArray = ['rock', 'paper', 'scissors'];
 
   const images = {
-    rock: 'https://media.tenor.com/5XuwpvROzEoAAAAi/rock-paper-scissors-roshambo.gif',
-    paper: 'https://media.tenor.com/iXeUwKbISiQAAAAi/rock-paper-scissors-roshambo.gif',
-    scissors: 'https://media.tenor.com/NyHqrePBRAEAAAAi/rock-paper-scissors-roshambo.gif',
+    // rock: 'https://media.tenor.com/5XuwpvROzEoAAAAi/rock-paper-scissors-roshambo.gif',
+    // paper: 'https://media.tenor.com/iXeUwKbISiQAAAAi/rock-paper-scissors-roshambo.gif',
+    // scissors: 'https://media.tenor.com/NyHqrePBRAEAAAAi/rock-paper-scissors-roshambo.gif',
+    rock:rock,
+    paper:paper,
+    scissors:scissors,
   };
+
+  const gif = {
+    initial: {
+      leftini: leftini,
+      rightini: rightini
+    },
+    paper: {
+      leftpaper: leftpaper,
+      rightpaper: rightpaper
+    },
+    scissors: {
+      leftscissors: leftscissors,
+      rightscissors: rightscissors
+    },
+
+    rock: {
+      leftrock: leftrock,
+      rightrock: rightrock
+    },
+  };
+  
 
   const handleClick = (userValue) => {
     if (final > 0) {
@@ -81,7 +116,7 @@ const Gameplay = () => {
           height={70}
           alt='Rock'
           onClick={() => final > 0 && handleClick('rock')}
-          style={{ cursor: final > 0 ? 'pointer' : null }}
+          style={{ cursor: final > 0 ? 'pointer' : null ,marginRight:'2em'}}
         />
         <img
           src={images['paper']}
@@ -89,7 +124,7 @@ const Gameplay = () => {
           height={70}
           alt='Paper'
           onClick={() => final > 0 && handleClick('paper')}
-          style={{ cursor: final > 0 ? 'pointer' : null }}
+          style={{ cursor: final > 0 ? 'pointer' : null,marginRight:'2em' }}
         />
         <img
           src={images['scissors']}
@@ -97,22 +132,22 @@ const Gameplay = () => {
           height={70}
           alt='Scissors'
           onClick={() => final > 0 && handleClick('scissors')}
-          style={{ cursor: final > 0 ? 'pointer' : null }}
+          style={{ cursor: final > 0 ? 'pointer' : null,marginRight:'2em' }}
         />
       </div>
       <div className='choices'>
-      {playerValue &&
+      
         <div className='choice'>
-          <h2 className='final-same align' style={{ color: 'green',marginBottom: '1em'}}>your choice</h2>
-          <img src={images[playerValue]} alt={playerValue} width={100} height={100} />
+          <h2 className='final-same align' style={{ color: 'green',marginBottom: '1em'}}>{playerValue ? `Your choice : ${playerValue}` : null}</h2>
+          <img src={playerValue ? playerValue==='rock' ? gif.rock.leftrock : playerValue==='paper' ? gif.paper.leftpaper : gif.scissors.leftscissors : gif.initial.leftini} alt={playerValue} width={100} height={100} />
         </div>
-      }
-      {devalue && 
+      
+      
         <div className='choice'>
-          <h2 className='final-same align' style={{ color: 'blue',marginBottom: '1em'}}>Developer choice</h2>
-          <img src={images[devalue]} alt={devalue} width={100} height={100} />
+          <h2 className='final-same align' style={{ color: 'blue',marginBottom: '1em'}}>{devalue ? `Developer choice : ${devalue}` : null}</h2>
+          <img src={devalue ? devalue==='rock' ? gif.rock.rightrock : devalue==='paper' ? gif.paper.rightpaper : gif.scissors.rightscissors : gif.initial.rightini} alt={devalue} width={100} height={100} />
         </div>
-      }
+      
       </div>
       <div className='btn-flex'>
         {final === 0 && (
